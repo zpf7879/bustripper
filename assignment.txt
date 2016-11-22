@@ -1,0 +1,18 @@
+As a new developer of Ruter's advanced client technologies team, you have been given responsibility of their
+commandline bus trip client! It is used to query the first 10 upcoming transports from a searchable area in Oslo.
+The previous developer on this team has unfortunately resigned, and you are to take over.
+The last thing he did was to rewrite the code from a synchronous to a parallel architecture, as there was many
+complaints that the client was slow in getting all the bus trips.
+
+Your assignment for the first hour of the day is;
+
+- Bugs have been filed on the client not supporting input of place names with non-alphanumeric characters
+  (St. Hanshaugen). Fix this.
+
+- After the first search, the cursor is not positioned correctly. Can you fix this?
+
+- Review the current code. What works, and where is there technical debt? Find 3 issues you would like to change.
+
+- Still there are complaints, that in situations where network is slow, the output of the bus lines are messy.
+  What can be the explanations of these? Plan (but don't code) what needs to be changed to be more robust against
+  slow networks.
