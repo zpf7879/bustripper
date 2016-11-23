@@ -1,0 +1,17 @@
+*.class
+
+*.jar
+*.war
+*.ear
+
+*.pydevproject
+uat-results.log
+.idea
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+build/**
+build/**/*
+src/generated/**
