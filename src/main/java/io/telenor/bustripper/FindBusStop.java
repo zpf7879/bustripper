@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 public class FindBusStop implements Runnable {
 
 
-    private static final String SEARCH_URL = "https://reisapi.ruter.no/Place/GetPlaces/";
+    private static final String SEARCH_URL = "http://reisapi.ruter.no/Place/GetPlaces/";
 
     private String searchTerm;
 
