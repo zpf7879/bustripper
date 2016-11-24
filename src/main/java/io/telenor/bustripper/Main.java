@@ -10,6 +10,9 @@ import java.util.Set;
 public class Main {
 
 
+        /**
+         * Waits for bustrip results and print the 10 first results sorted by time.
+        **/
         private static class BustripWaiter implements TripsCallback {
             private boolean done = false;
             private Set<BusTrip> allTrips = new HashSet<BusTrip>();
