@@ -6,12 +6,14 @@ complaints that the client was slow in getting all the bus trips.
 
 Your assignment for the first hour of the day is;
 
-- Bugs have been filed on the client not supporting input of place names with non-alphanumeric characters
-  (St. Hanshaugen). Fix this.
+- Bugs have been filed on the client not supporting input of place names with characters other than letters
+  (examples are 'St. Hanshaugen' or 'Telenor Fornebu'). Can you fix this?
 
-- After the first search, the cursor is not positioned correctly. Can you fix this?
+- On some searches ('Fornebu' or 'Oslo'), more than 10 results are printed and the cursor is not positioned correctly.
+  Can you fix this?
 
-- Review the current code. What works, and where is there technical debt? Find 3 issues you would like to change.
+- Perform a code review of the current code. Make notes of What works, identify bugs and suggest improvements.
+  Prepare a discussion around your findings. There is no need to code corrections here.
 
 - Still there are complaints, that in situations where network is slow, the output of the bus lines are messy.
   What can be the explanations of these? Plan (but don't code) what needs to be changed to be more robust against
