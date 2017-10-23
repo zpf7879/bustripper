@@ -3,15 +3,13 @@ package io.telenor.bustripper;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.InterruptedIOException;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
 
-
         /**
-         * Waits for bustrip results and print the 10 first results sorted by time.
+         * Waits for Bustrip results and print the 10 first results sorted by time.
         **/
         private static class BustripWaiter implements TripsCallback {
             private boolean done = false;
@@ -69,19 +67,13 @@ public class Main {
                         new Thread(new FindBusStop(waiter, searchterm)).start();
                         waiter.waitForCompletion();
                     }
-                    catch(IOException io) {
-                        done = true;
-                    }
-                    catch(InterruptedException uh) {
+                    catch(IOException | InterruptedException io) {
                         done = true;
                     }
                 } while (!done);
 
             }
         }
-
-
-
 
         public static void main(String[] args) {
             new Thread(new InputGatherer()).start();
