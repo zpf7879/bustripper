@@ -1,7 +1,9 @@
 package io.telenor.bustripper;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import org.glassfish.jersey.client.ClientConfig;
-
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 
@@ -10,13 +12,8 @@ import javax.ws.rs.core.MediaType;
  */
 public class FindBusStop implements Runnable {
 
-
-    private static final String SEARCH_URL = "http://reisapi.ruter.no/Place/GetPlaces/";
-
     private String searchTerm;
-
     private Client client;
-
     private TripsCallback listener;
 
     public FindBusStop(TripsCallback callback, String searchTerm) {
@@ -29,9 +26,21 @@ public class FindBusStop implements Runnable {
 
         client = ClientBuilder.newClient(configuration);
 
-        Invocation.Builder invocationBuilder = client
-                .target(SEARCH_URL + searchTerm)
-                .request(MediaType.APPLICATION_JSON);
+        Invocation.Builder invocationBuilder = null;
+
+        try {
+            URI uri = new URI(
+                    "http",
+                    "reisapi.ruter.no",
+                    "/Place/GetPlaces/" + searchTerm,
+                    null);
+            String s = uri.toURL().toString();
+            invocationBuilder = client
+                        .target(s)
+                        .request(MediaType.APPLICATION_JSON);
+        } catch (URISyntaxException | MalformedURLException e) {
+            listener.failedGettingTrips(e);
+        }
 
         final AsyncInvoker asyncInvoker = invocationBuilder.async();
         BusStopsCallBack callback = new BusStopsCallBack(listener);
